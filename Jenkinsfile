@@ -47,12 +47,6 @@ pipeline {
             }
         }
 
-        stage('Deploy to Minikube') {
-            steps {
-                // Aquí colocarías los comandos para el despliegue en Minikube
-                // Por ejemplo: kubectl apply -f tus-archivos-de-despliegue.yaml
-            }
-        }
     }
 
     post {
