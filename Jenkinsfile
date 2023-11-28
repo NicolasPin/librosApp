@@ -19,7 +19,7 @@ pipeline {
             steps {
                 // Paso para construir el proyecto con Maven
                 script {
-                    def mvnHome = tool 'Maven' // Asegúrate de tener una instalación de Maven en Jenkins llamada 'Maven'
+                    def mvnHome = tool 'maven-tool' // Asegúrate de tener una instalación de Maven en Jenkins llamada 'Maven'
                     sh "${mvnHome}/bin/mvn clean install"
                 }
             }
