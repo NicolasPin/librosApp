@@ -29,7 +29,7 @@ pipeline {
             steps {
                 // Paso para ejecutar las pruebas
                 script {
-                    def mvnHome = tool 'Maven'
+                    def mvnHome = tool 'maven-tool'
                     sh "${mvnHome}/bin/mvn test"
                 }
             }
