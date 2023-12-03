@@ -50,10 +50,4 @@ pipeline {
 
     }
 
-    post {
-        success {
-            // Acciones adicionales si el pipeline tiene éxito
-             echo '¡Pipeline completado con éxito!'
-        }
-    }
 }
