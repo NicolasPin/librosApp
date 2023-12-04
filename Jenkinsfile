@@ -4,7 +4,7 @@ pipeline {
 
     environment {
         //be sure to replace "felipelujan" with your own Docker Hub username
-        DOCKER_IMAGE_NAME = "nicopin/imagenTP"
+        DOCKER_IMAGE_NAME = "nicopin/imagentp"
     }
 
     stages {
