@@ -74,7 +74,7 @@ pipeline {
             steps {
                 script {
                     // Iniciar sesión en DockerHub (asegúrate de configurar las credenciales en Jenkins)
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_login') {
+                    docker.withRegistry('https://hub.docker.com/', 'dockerhub_login') {
                         // Subir la imagen a DockerHub
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
