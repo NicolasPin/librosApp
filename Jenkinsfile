@@ -56,7 +56,15 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Check Docker Version') {
+            steps {
+                script {
+                    sh 'docker --version'
+                }
+            }
+        }
+        /*
+         stage('Build Docker Image') {
             when{
                 branch 'main'
             }
@@ -83,6 +91,8 @@ pipeline {
                 }
             }
         }
+        */
+       
     }
 }
 
