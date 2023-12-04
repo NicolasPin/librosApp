@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+
+    environment {
+        //be sure to replace "felipelujan" with your own Docker Hub username
+        DOCKER_IMAGE_NAME = "nicopin/imagenTP"
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -49,6 +55,34 @@ pipeline {
             }
         }
 
-    }
+        stage('Build Docker Image') {
+            when{
+                branch 'main'
+            }
+            steps {
+                script {
+                    // Construir la imagen de Docker
+                   app = docker.build(DOCKER_IMAGE_NAME)
+                }
+            }
+        }
 
+        stage('Push Docker Image to DockerHub') {
+            when{
+                branch 'main'
+            }
+            steps {
+                script {
+                    // Iniciar sesión en DockerHub (asegúrate de configurar las credenciales en Jenkins)
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_login') {
+                        // Subir la imagen a DockerHub
+                        app.push("${env.BUILD_NUMBER}")
+                        app.push("latest")
+                    }
+                }
+            }
+        }
+    }
 }
+
+
