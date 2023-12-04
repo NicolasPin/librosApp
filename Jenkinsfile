@@ -49,7 +49,7 @@ pipeline {
                     def scannerHome = tool 'sonar-scanner'
                     withSonarQubeEnv('sonarqube') {
                          sh "${scannerHome}/bin/sonar-scanner  \
-                          -Dsonar.projectKey=tpcurso \
+                          -Dsonar.projectKey=libros \
                           -Dsonar.java.binaries=target/classes"
                     }
                 }
@@ -70,7 +70,7 @@ pipeline {
             steps {
                 script {
                     // Iniciar sesión en DockerHub (asegúrate de configurar las credenciales en Jenkins)
-                    docker.withRegistry('https://hub.docker.com/', 'dockerhub_login') {
+                    docker.withRegistry('https://registry.hub.docker.com/', 'dockerhub_login') {
                         // Subir la imagen a DockerHub
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
