@@ -31,13 +31,6 @@ pipeline {
             }
         }
 
-        stage('Check Docker Connectivity') {
-            steps {
-                script {
-                    sh 'docker info'
-                }
-            }
-        }
 
         stage('Unit Tests') {
             steps {
