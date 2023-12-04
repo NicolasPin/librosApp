@@ -58,9 +58,6 @@ pipeline {
 
         
          stage('Build Docker Image') {
-            when{
-                branch 'main'
-            }
             steps {
                 script {
                     // Construir la imagen de Docker
@@ -70,9 +67,6 @@ pipeline {
         }
 
         stage('Push Docker Image to DockerHub') {
-            when{
-                branch 'main'
-            }
             steps {
                 script {
                     // Iniciar sesión en DockerHub (asegúrate de configurar las credenciales en Jenkins)
