@@ -31,6 +31,14 @@ pipeline {
             }
         }
 
+        stage('Check Docker Connectivity') {
+            steps {
+                script {
+                    sh 'docker info'
+                }
+            }
+        }
+
         stage('Unit Tests') {
             steps {
                 // Paso para ejecutar las pruebas
